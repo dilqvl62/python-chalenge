@@ -27,10 +27,13 @@ with open(output_path,'w') as f:
         print(f" Total Votes: {len(votes_list)}")
         print("----------------------------------")
         
-        #create a list of unique values in a given list      
+        #create a list of every candidate in a given list      
         # by itterate through all elements in a given list
-        for x in votes_list:
-            if x not in Candidate_list:
-                Candidate_list.append(x)
-    print(Candidate_list)
+        for v in votes_list:
+            if v not in Candidate_list:
+                Candidate_list.append(v)
+        
+        # Calculating the percentage of votes each candidate won 
+        for x in Candidate_list:
+            print(f"{x} : {'{0:}%'.format(round((votes_list.count(x)/len(votes_list))*100,3))} ({votes_list.count(x)})")
 
