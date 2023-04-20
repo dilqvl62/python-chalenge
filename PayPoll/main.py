@@ -27,9 +27,10 @@ with open(output_path,'w') as f:
         for row in csvreader:
             votes_list.append(row[Cand])
 
-        print(f" Total Votes: {len(votes_list)}")
+        print(f"Total Votes: {len(votes_list)}")
         print("----------------------------------")
-        
+        f.write(f"Total Votes: {len(votes_list)}\n")
+        f.write("----------------------------------\n")
         #create a list of every candidate in a given list      
         # by itterate through all elements in that list
         for v in votes_list:
@@ -40,7 +41,11 @@ with open(output_path,'w') as f:
         for x in Candidate_list:
             total_votes.append(votes_list.count(x))
             print(f"{x} : {'{0:}%'.format(round((votes_list.count(x)/len(votes_list))*100,3))} ({votes_list.count(x)})")
-
+            f.write(f"{x} : {'{0:}%'.format(round((votes_list.count(x)/len(votes_list))*100,3))} ({votes_list.count(x)})\n")
         print("--------------------")
-      
+        f.write("--------------------\n")
+        #printing the winner 
         print(f"Winner: {Candidate_list[total_votes.index(max(total_votes))]}")
+        f.write(f"Winner: {Candidate_list[total_votes.index(max(total_votes))]}\n")
+        print("-------------")
+        f.write("-------------\n")
