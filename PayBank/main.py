@@ -10,13 +10,15 @@ Date_list=[]
 Inc_Deac_list=[]
 #opening an output file 
 with open(output_path, 'w') as f:
-    print("Financial Analysis")
-    print("------------------------------")
+    f.write("Financial Analysis\n")
+    f.write("------------------------------\n")
     #opening the csv file to read from 
     with open(csvpath) as csvfile:
+        print("Financial Analysis")
+        print("------------------------------")
         csvreader = csv.reader(csvfile,delimiter=',')
         csv_header = next(csvreader)
-        #declaring index for profit/loses and dated to itterate through the csv file and adding to the lists
+        #declaring index for profit/loses and date to itterate through the csv file and adding to the lists
         P_l= csv_header.index("Profit/Losses")
         Date = csv_header.index("Date")
         for row in csvreader: 
